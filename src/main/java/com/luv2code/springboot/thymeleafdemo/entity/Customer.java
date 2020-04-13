@@ -1,11 +1,17 @@
 package com.luv2code.springboot.thymeleafdemo.entity;
 
 import javax.persistence.Column;
+
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
+import javax.validation.constraints.Email;
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 @Entity
 @Table(name="customer")
@@ -19,12 +25,18 @@ public class Customer {
 	private int id;
 	
 	@Column(name="first_name")
+	@NotNull(message="Please provide a first name ")
+    @Size(min =1 , max =60)
 	private String firstName;
 	
 	@Column(name="last_name")
+	@NotNull()
+	@Size(min =1 , max =60, message="Please provide a last name")
 	private String lastName;
 	
 	@Column(name="email")
+	@NotNull()
+	@Email(message = "Please provide a valid email Id")
 	private String email;
 	
 		
