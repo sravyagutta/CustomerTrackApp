@@ -10,16 +10,6 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 	<title>Save Customer</title>
-	
-	<style>
-	   
-	   .error{
-	   color: red;
-	   
-	   }
-	
-	</style>
-	
 </head>
 
 <body>
@@ -34,33 +24,18 @@
 		<form action="#" th:action="@{/customers/save}"
 						 th:object="${customer}" method="POST">
 		
-		
 			<!-- Add hidden form field to handle update -->
-		
-			<p><input type="hidden" th:field="*{id}" ></p>
+			<input type="hidden" th:field="*{id}" />
 			
-			
-			
-			<p>FirstName: <input type="text" th:field="*{firstName}"
-			class="form-control mb-4 col-4" placeholder="First name" >
-			<span th:if ="${#fields.hasErrors('firstName')}" th:errors= "*{firstName}" 
-			th:errorclass="error"></span></p>
-			
-			
-			
-                    
-	<p>LastName: <input type="text" th:field="*{lastName}"
-			class="form-control mb-4 col-4" placeholder="Last name"> 
-			<span th:if ="${#fields.hasErrors('lastName')}" th:errors= "*{lastName}"
-			th:errorclass="error"></span></p>
-			
+			<input type="text" th:field="*{firstName}"
+					class="form-control mb-4 col-4" placeholder="First name">
 
-			<p>Email: <input type="text" th:field="*{email}"
-			class="form-control mb-4 col-4" placeholder="Email">
-			<span th:if ="${#fields.hasErrors('email')}" th:errors= "*{email}"
-			th:errorclass="error"></span></p>
-					
-					
+			<input type="text" th:field="*{lastName}"
+					class="form-control mb-4 col-4" placeholder="Last name">
+
+			<input type="text" th:field="*{email}"
+					class="form-control mb-4 col-4" placeholder="Email">
+				
 			<button type="submit" class="btn btn-info col-2">Save</button>
 						
 		</form>
